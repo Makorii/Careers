@@ -7,6 +7,10 @@
     --clr-tags: #FFF1F1;
 }
 
+body {
+    background-color: var(--clr-body);
+}
+
 .navbar {
     background-color: var(--clr-nav);
 }
