@@ -8,6 +8,16 @@
     background-color: var(--clr-nav);
 }
 
+/* ESTILO A LA DESCRIPCION DE LAS TAGS EN MAIN */
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 /* ESTILO DEL SPINNER */
 .loader {
     width: 32px;
