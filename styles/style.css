@@ -1,0 +1,9 @@
+:root {
+    --clr-nav: #4F0E0E;
+    --clr-body: #FFDADA;
+    --clr-white: #EEEEEE;
+}
+
+.navbar {
+    background-color: var(--clr-nav);
+}
