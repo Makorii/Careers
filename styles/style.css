@@ -2,10 +2,47 @@
     --clr-nav: #4F0E0E;
     --clr-body: #FFDADA;
     --clr-white: #EEEEEE;
+    --clr-btn: #BB8760;
+    --clr-btn-hover: #a56432;
+    --clr-tags: #FFF1F1;
 }
 
 .navbar {
     background-color: var(--clr-nav);
+}
+
+.btn-search, .btn-create {
+    background-color: var(--clr-btn);
+    color: var(--clr-white);
+}
+
+.card {
+    background-color: var(--clr-tags);
+}
+
+.btn-tags {
+    background-color: var(--clr-btn);
+    color: var(--clr-white);
+}
+
+.btn-tags:hover, .btn-search:hover, .btn-create:hover {
+    background-color: var(--clr-btn-hover);
+    color: var(--clr-white);
+}
+
+.btn-clear {
+    background-color: #DEA057;
+    color: var(--clr-white);
+}
+
+.btn-clear:hover{
+    background-color: #dd933d;
+    color: var(--clr-white);
+}
+
+.tag {
+    background-color: #733C3C;
+    color: var(--clr-white);
 }
 
 /* ESTILO A LA DESCRIPCION DE LAS TAGS EN MAIN */
