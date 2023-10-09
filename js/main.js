@@ -36,3 +36,9 @@ const renderJobs = (jobsData) => {
         `
     });
 }
+
+const incializarVistas = () => {
+    $("#new-job").onclick = () => showView("create-job");
+}
+
+window.onload = incializarVistas()
