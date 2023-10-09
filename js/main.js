@@ -39,6 +39,12 @@ const renderJobs = (jobsData) => {
 
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
+    $("#home").onclick = () => {
+        showView("spinner") 
+        setTimeout(() => {
+            showView("jobs-list");
+        }, 1500)
+    }; 
 }
 
 window.onload = initializeViews()
