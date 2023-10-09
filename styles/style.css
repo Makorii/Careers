@@ -5,6 +5,10 @@
     --clr-btn: #BB8760;
     --clr-btn-hover: #a56432;
     --clr-tags: #FFF1F1;
+    --clr-delete: #91091E;
+    --clr-delete-hover: #a00f25;
+    --clr-edit: #D67D3E;
+    --clr-edit-hover: #e58643;
 }
 
 body {
@@ -46,6 +50,27 @@ body {
 
 .tag {
     background-color: #733C3C;
+    color: var(--clr-white);
+}
+
+.btn-edit {
+    background-color: var(--clr-edit);
+    color: var(--clr-white);
+}
+
+.btn-edit:hover {
+    background-color: var(--clr-edit-hover);
+    color: var(--clr-white);
+}
+
+
+.btn-delete {
+    background-color: var(--clr-delete);
+    color: var(--clr-white);
+}
+
+.btn-delete:hover {
+    background-color: var(--clr-delete-hover);
     color: var(--clr-white);
 }
 

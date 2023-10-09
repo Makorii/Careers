@@ -35,3 +35,39 @@ const addNewJob = async (id) => {
 }
 
 $("#submit-new-job").addEventListener("click", () => addNewJob())
+
+const editJob = async (id) => {
+    showView("spinner")
+    let response = await fetch(`https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            name: $("#title-edit-job").value,
+            description: $("#description-edit-job").value,
+            location: $("#location-edit-job").value,
+            seniority: $("#seniority-edit-job").value,
+            category: $("#category-edit-job").value,
+        }),
+        headers:{
+            'Content-type':'application/json',
+        } 
+    })
+    let data = await response.json()
+    setTimeout(() => {
+        getJobs(data)
+        
+    }, 2000);
+}
+
+const deleteJob = async (id) => {
+    showView("spinner")
+    let response = await fetch(`https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs/${id}`, {
+        method: "DELETE",
+        headers: {},
+        body: "",
+    })
+    let data = await response.json()
+    setTimeout(() => {
+        getJobs(data)
+        
+    }, 2000);
+}
