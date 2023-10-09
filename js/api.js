@@ -57,3 +57,17 @@ const editJob = async (id) => {
         
     }, 2000);
 }
+
+const deleteJob = async (id) => {
+    showView("spinner")
+    let response = await fetch(`https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs/${id}`, {
+        method: "DELETE",
+        headers: {},
+        body: "",
+    })
+    let data = await response.json()
+    setTimeout(() => {
+        getJobs(data)
+        
+    }, 2000);
+}
