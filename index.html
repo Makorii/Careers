@@ -64,6 +64,27 @@
     <main>
         <section id="jobs-list" class="view row mx-auto gap-3" style="width: 1200px"></section>
     </main>
+    <section id="create-job" class="view">
+        <form class="container border p-4 shadow form rounded">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Job Title</label>
+                <input type="text" class="form-control" id="title-new-job" placeholder="Job Title">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="description-new-job" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Tags</label>
+                <input type="text" class="form-control" id="location-new-job" placeholder="Location">
+                <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                <input type="text" class="form-control" id="seniority-new-job" placeholder="Seniority">
+                <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                <input type="text" class="form-control" id="category-new-job" placeholder="Category">
+            </div>
+            <button type="submit" class="btn btn-create mb-3" id="submit-new-job">Submit</button>
+        </form>
+    </section>
     <script src="./js/main.js"></script>
     <script src="./js/api.js"></script>
 </body>
