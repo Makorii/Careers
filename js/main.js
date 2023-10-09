@@ -103,6 +103,26 @@ const showEditJob = (jobId) => {
     }
 }
 
+//Funcion que muestra la card para eliminar un job
+const deleteView = (jobId) => {
+    const job = jobs.find(job => job.id === jobId);
+    if (job) {
+    $("#card-details").classList.add("visually-hidden");
+    $("#details-job").innerHTML += `
+    <div class="card p-3 mx-auto" style="width: 16rem;">
+        <div class="modal-body">
+            <p>Are you sure to detele this job?</p>
+            <div class="mx-auto">
+                <a href="#" class="btn btn-delete" onclick="deleteJob('${job.id}')" id="${job.id}">Delete</a>
+                <a href="#" class="btn btn-clear" onclick="showView('jobs-list')">Cancel</a>
+            </div>
+            
+        </div>
+    </div>
+    `
+    }
+}
+
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
     $("#home").onclick = () => {
