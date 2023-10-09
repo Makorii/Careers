@@ -5,6 +5,10 @@
     --clr-btn: #BB8760;
     --clr-btn-hover: #a56432;
     --clr-tags: #FFF1F1;
+    --clr-delete: #91091E;
+    --clr-delete-hover: #a00f25;
+    --clr-edit: #D67D3E;
+    --clr-edit-hover: #e58643;
 }
 
 body {
