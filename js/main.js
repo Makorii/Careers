@@ -67,6 +67,42 @@ const showDetails = (jobId) => {
     }
 }
 
+//Funcion que muestra el form para editar el job seleccionado
+const showEditJob = (jobId) => {
+    const job = jobs.find(job => job.id === jobId);
+    if (job) {
+        const name = job.name || "";
+        const description = job.description || "";
+        const location = job.location || "";
+        const seniority = job.seniority || "";
+        const category = job.category || "";
+
+        $("#details-job").innerHTML += `
+        <section class="container py-4 px-0">
+            <form class="container border p-4 shadow form rounded">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label"></label>
+                        <input type="text" class="form-control" id="title-edit-job" placeholder="Job Title" value="${name}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="description-edit-job" rows="10" cols="50">${description}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tags</label>
+                        <input type="text" class="form-control" id="location-edit-job" placeholder="Location" value="${location}">
+                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <input type="text" class="form-control" id="seniority-edit-job" placeholder="Seniority" value="${seniority}">
+                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <input type="text" class="form-control" id="category-edit-job" placeholder="Category" value="${category}">
+                    </div>
+                    <a href="#" type="submit" class="btn btn-edit mb-3" onclick="editJob('${job.id}')" id="${job.id}">Edit</a>
+                </form>
+            </section>
+        `;
+    }
+}
+
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
     $("#home").onclick = () => {
