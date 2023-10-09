@@ -53,6 +53,27 @@ body {
     color: var(--clr-white);
 }
 
+.btn-edit {
+    background-color: var(--clr-edit);
+    color: var(--clr-white);
+}
+
+.btn-edit:hover {
+    background-color: var(--clr-edit-hover);
+    color: var(--clr-white);
+}
+
+
+.btn-delete {
+    background-color: var(--clr-delete);
+    color: var(--clr-white);
+}
+
+.btn-delete:hover {
+    background-color: var(--clr-delete-hover);
+    color: var(--clr-white);
+}
+
 /* ESTILO A LA DESCRIPCION DE LAS TAGS EN MAIN */
 .description {
     display: -webkit-box;
