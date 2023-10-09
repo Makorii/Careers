@@ -37,6 +37,36 @@ const renderJobs = (jobsData) => {
     });
 }
 
+//Funcion para que se vea el detalle de cada job
+const showDetails = (jobId) => {
+    const job = jobs.find(job => job.id === jobId);
+
+    if (job) {
+        $("#details-job").innerHTML = `
+            <div class="card p-3 shadow" style="width: 20.5rem;" id="card-details">
+                <div style="height: 127px;" style="width: 18rem;" class="d-flex align-items-center">
+                    <img src="${job.image}" class="card-img-top" alt="image of job" style="height: 100%;">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${job.name}</h5>
+                    <p class="card-text">${job.description.replace(/\n/g, '<br>')}</p>
+                </div>
+                <ul class="d-flex gap-3 p-0">
+                    ${job.location ? `<li class="list-group-item tag px-1 rounded">${job.location}</li>` : ''}
+                    ${job.category ? `<li class="list-group-item tag px-1 rounded">${job.category}</li>` : ''}
+                    ${job.seniority ? `<li class="list-group-item tag px-1 rounded">${job.seniority}</li>` : ''}
+                </ul>
+                <div class="d-flex gap-4 m-2">
+                    <a href="#" onclick="showEditJob('${job.id}')" id="${job.id}" class="btn btn-edit">Edit</a>
+                    <a href="#" onclick="deleteView('${job.id}')" id="${job.id}" class="btn btn-delete">Delete</a>
+                </div>
+                
+            </div>
+        `;
+        showView("details-job");
+    }
+}
+
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
     $("#home").onclick = () => {
