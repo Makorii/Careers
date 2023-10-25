@@ -54,6 +54,22 @@ const getCountries = (data) => {
     })
 }
 
+//Funcion para traer de manera dinamica las categorias
+const getCategories = (data) => {
+    $("#select-category").innerHTML = `<option selected>Category</option>`
+    const categories = []
+    data.forEach(element => {
+        if(!categories.includes(element.category) && element.category !== ""){
+            categories.push(element.category);
+        }
+    })
+    return categories.map(category => {
+        $("#select-category").innerHTML += `
+        <option value="${category}">${category}</option>
+        `
+    })
+}
+
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
