@@ -4,7 +4,7 @@ const getJobs = async() => {
     let response = await fetch("https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs")
     let data = await response.json()
     setTimeout(() => {
-        renderJobs(data);
+        initialize(data);
     }, 2000);
 }
 getJobs()
@@ -71,3 +71,10 @@ const deleteJob = async (id) => {
         
     }, 2000);
 }
+
+const initialize = (data) => {
+    getCountries(data)
+    renderJobs(data)
+}
+
+window.onload = getJobs();
