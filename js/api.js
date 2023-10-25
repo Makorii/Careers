@@ -10,31 +10,48 @@ const getJobs = async() => {
 getJobs()
 
 // funcion que agrega un nuevo job
-const addNewJob = async (id) => {
-    showView("spinner")
-    let response = await fetch("https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs", {
+const addNewJob = async () => {
+    showView("spinner");
+    const selectedLanguages = getSelectedLanguages();
+    const newJob = createNewJob(selectedLanguages);
+
+    const response = await fetch("https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs", {
         method: "POST",
-        body: JSON.stringify({
-            name: $("#title-new-job").value,
-            description: $("#description-new-job").value,
-            image: "https://static.vecteezy.com/system/resources/previews/005/337/799/non_2x/icon-image-not-found-free-vector.jpg",
-            location: $("#location-new-job").value,
-            seniority: $("#seniority-new-job").value,
-            category: $("#category-new-job").value,
-            id: id,
-        }),
-        headers:{
+        body: JSON.stringify(newJob),
+        headers: {
             "Content-type": "application/json; charset=UTF-8",
-        } 
-    })
-    let data = await response.json()
-    setTimeout(() => {
-        getJobs(data)
-        
-    }, 2000);
+        }
+    });
+
+    const data = await response.json();
+    if (data) {
+        setTimeout(() => {
+            getJobs();
+            showElements(["#search-bar"])
+        }, 2000);
+    }
 }
 
 $("#submit-new-job").addEventListener("click", () => addNewJob())
+
+const createNewJob = (selectedLanguages) => {
+    return {
+        name: $("#title-new-job").value,
+        description: $("#description-new-job").value,
+        image: $("#image-new-job").value,
+        location: $("#location-new-job").value,
+        seniority: $("#seniority-new-job").value,
+        category: $("#category-new-job").value,
+        benefits: {
+            vacation: $("#vacation-new-job").checked,
+            health_ensurance: $("#health_ensurance-new-job").checked,
+            internet_paid: $("#internet_paid-new-job").checked
+        },
+        salary: $("#salary-new-job").value,
+        long_term: $("#long_term-new-job").checked,
+        languages: selectedLanguages,
+    };
+}
 
 const editJob = async (id) => {
     showView("spinner")
