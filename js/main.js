@@ -99,6 +99,14 @@ const showDetails = (jobId) => {
                 <div class="card-body">
                     <h5 class="card-title">${job.name}</h5>
                     <p class="card-text">${job.description.replace(/\n/g, '<br>')}</p>
+                    <ul class="p-0">Beneficios:
+                        ${job.benefits.vacation ? `<li class="list-group-item">Vacaciones: ${job.benefits.vacation ? "Si" : "No"}</li>` : `<li class="list-group-item">Vacaciones: No </li>`}
+                        ${job.benefits.health_ensurance ? `<li class="list-group-item">Obra social: ${job.benefits.health_ensurance ? "Si" : "No"}</li>` : `<li class="list-group-item">Obra social: No </li>`}
+                        ${job.benefits.internet_paid ? `<li class="list-group-item">Internet pago: ${job.benefits.internet_paid ? "Si" : "No"}</li>` : `<li class="list-group-item">Internet pago: No </li>`}
+                    </ul>
+                    ${job.salary ? `<p>Salario: $${job.salary}</p>` : ''}
+                    ${job.long_term ? `<li class="list-group-item">Contrato a largo plazo: ${job.long_term ? "Si" : "No"}</li>` : `<li class="list-group-item">Contrato a largo plazo: No </li>`}
+                    ${job.languages ? `<p>Conocimientos: ${job.languages.join(', ')}</p>` : ''}
                 </div>
                 <ul class="d-flex gap-3 p-0">
                     ${job.location ? `<li class="list-group-item tag px-1 rounded">${job.location}</li>` : ''}
