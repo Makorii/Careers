@@ -73,8 +73,9 @@ const deleteJob = async (id) => {
 }
 
 const initialize = (data) => {
-    getCountries(data)
     renderJobs(data)
+    getCountries(data)
+    getCategories(data)
 }
 
 window.onload = getJobs();
