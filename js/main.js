@@ -37,6 +37,23 @@ const renderJobs = (jobsData) => {
     });
 }
 
+//Funcion para traer de manera dinamica los paises
+const getCountries = (data) => {
+    $("#select-location").innerHTML = `<option selected>Location</option>`
+    const countries = []
+    data.forEach(element => {
+        if (!countries.includes(element.location) && element.location !== "") {
+            countries.push(element.location);
+            
+        }
+    });
+    return countries.map(country => {
+        $("#select-location").innerHTML += `
+        <option value="${country}">${country}</option>
+        `
+    })
+}
+
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
