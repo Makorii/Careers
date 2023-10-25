@@ -46,16 +46,25 @@ const editJob = async (id) => {
             location: $("#location-edit-job").value,
             seniority: $("#seniority-edit-job").value,
             category: $("#category-edit-job").value,
+            benefits: {
+                vacation: $("#vacation-edit-job").checked,
+                health_ensurance: $("#health_ensurance-edit-job").checked,
+                internet_paid: $("#internet_paid-edit-job").checked
+            },
+            salary: $("#salary-edit-job").value,
+            long_term: $("#long_term-edit-job").checked,
         }),
         headers:{
             'Content-type':'application/json',
         } 
     })
     let data = await response.json()
-    setTimeout(() => {
-        getJobs(data)
-        
+    if(data){
+        setTimeout(() => {
+        getJobs()
+        showElements(["#search-bar"]);
     }, 2000);
+    }
 }
 
 const deleteJob = async (id) => {
