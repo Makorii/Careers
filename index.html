@@ -56,12 +56,81 @@
                 <textarea class="form-control" id="description-new-job" rows="3"></textarea>
             </div>
             <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">URL image</label>
+                <input type="url" name="" id="image-new-job">
+            </div>
+            <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Tags</label>
                 <input type="text" class="form-control" id="location-new-job" placeholder="Location">
                 <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
                 <input type="text" class="form-control" id="seniority-new-job" placeholder="Seniority">
                 <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
                 <input type="text" class="form-control" id="category-new-job" placeholder="Category">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Benefits</label>
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="vacation-new-job">
+                        Vacation
+                    </label>
+                    <input class="form-check-input" role="switch" type="checkbox" value="health_ensurance" id="vacation-new-job">
+                </div>
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="health_ensurance-new-job">
+                        Health ensurance
+                    </label>
+                    <input class="form-check-input" role="switch" type="checkbox" value="health_ensurance" id="health_ensurance-new-job">
+                </div>
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="internet_paid-new-job">
+                        Internet paid
+                    </label>
+                    <input class="form-check-input" role="switch" type="checkbox" value="internet_paid" id="internet_paid-new-job">
+                </div>
+            </div>
+            <label for="customRange1" class="form-label">Salary</label>
+            <p id="salaryValue" class="m-0 salaryValue">$0</p>
+            <input type="range" class="form-range d-flex" style="max-width: 20rem;" id="salary-new-job" min="0" max="1000000" step="1000" value="0" oninput="updateSalaryValue(this.value)" style="width: 20rem;">
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="long_term-new-job">
+                    Long term
+                </label>
+                <input class="form-check-input" role="switch" type="checkbox" value="long_term-new-job" id="long_term-new-job">
+            </div>
+            <p>Conocimientos:</p>
+            <div class="mb-3 gap-2">
+                <input type="checkbox" class="btn-check" id="html5" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="html5">HTML5</label>
+                <input type="checkbox" class="btn-check" id="css" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="css">CSS</label>
+                <input type="checkbox" class="btn-check" id="javascript" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="javascript">JavaScript</label>
+                <input type="checkbox" class="btn-check" id="react" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="react">ReactJS</label>
+                <input type="checkbox" class="btn-check" id="sass" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="sass">SASS</label>
+                <input type="checkbox" class="btn-check" id="java" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="java">Java</label>
+                <input type="checkbox" class="btn-check" id="python" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="python">Python</label>
+                <input type="checkbox" class="btn-check" id="angular" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="angular">Angular</label>
+                <input type="checkbox" class="btn-check" id="c++" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="c++">C++</label>
+                <input type="checkbox" class="btn-check" id="php" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="php">PHP</label>
+                <input type="checkbox" class="btn-check" id="bootstrap" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="bootstrap">Bootstrap</label>
+                <input type="checkbox" class="btn-check" id="nodejs" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="nodejs">Node.js</label>
+                <input type="checkbox" class="btn-check" id="figma" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="figma">Figma</label>
+                <input type="checkbox" class="btn-check" id="adobexd" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="adobexd">AdobeXD</label>
+                <input type="checkbox" class="btn-check" id="illustrator" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="illustrator">Illustrator</label>
+                <input type="checkbox" class="btn-check" id="photoshop" autocomplete="off">
+                <label class="btn m-1 btn-edit" for="photoshop">Photoshop</label>
             </div>
             <button type="submit" class="btn btn-create mb-3" id="submit-new-job">Submit</button>
         </form>
