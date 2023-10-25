@@ -70,6 +70,22 @@ const getCategories = (data) => {
     })
 }
 
+//Funcion para traer de manera dinamica los seniorities
+const getSeniorities = (data) => {
+    $("#select-seniority").innerHTML = `<option selected>Seniority</option>`
+    const seniorities = []
+    data.forEach(element => {
+        if(!seniorities.includes(element.seniority) && element.seniority !== ""){
+            seniorities.push(element.seniority)
+        }
+    })
+    return seniorities.map(seniority => {
+        $("#select-seniority").innerHTML += `
+        <option value="${seniority}">${seniority}</option>
+        `
+    })
+}
+
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
