@@ -76,6 +76,7 @@ const initialize = (data) => {
     renderJobs(data)
     getCountries(data)
     getCategories(data)
+    getSeniorities(data)
 }
 
 window.onload = getJobs();
