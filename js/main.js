@@ -280,6 +280,7 @@ const getSelectedLanguages = () => {
     return selectedLanguages;
 }
 
+//funcion para filtrar por ubicacion, categoria o seniority
 const filterJobs = () => {
     showView("spinner");
     const selectedLocation = $("#select-location").value;
@@ -306,6 +307,16 @@ const filterJobs = () => {
 }
 
 $("#select-btn").addEventListener("click", filterJobs);
+
+//funcion para limpiar los filtros
+const clearFilters = () => {
+    $("#select-location").value = "Location";
+    $("#select-category").value = "Category";
+    $("#select-seniority").value = "Seniority";
+
+    getJobs();
+}
+$("#clear-btn").addEventListener("click", clearFilters);
 
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
