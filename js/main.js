@@ -1,7 +1,17 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+const hideElements = (selectors) => {
+    for (const eachSelector of selectors) {
+        $(eachSelector).classList.add('visually-hidden')
+    }
+}
 
+const showElements = (selectors) => {
+    for (const eachSelector of selectors) {
+        $(eachSelector).classList.remove('visually-hidden')
+    }
+}
 
 const showView = (view) => {  
     $$(".view").forEach((view) => view.classList.add("visually-hidden"));  
