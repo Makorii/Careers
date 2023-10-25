@@ -37,6 +37,55 @@ const renderJobs = (jobsData) => {
     });
 }
 
+//Funcion para traer de manera dinamica los paises
+const getCountries = (data) => {
+    $("#select-location").innerHTML = `<option selected>Location</option>`
+    const countries = []
+    data.forEach(element => {
+        if (!countries.includes(element.location) && element.location !== "") {
+            countries.push(element.location);
+            
+        }
+    });
+    return countries.map(country => {
+        $("#select-location").innerHTML += `
+        <option value="${country}">${country}</option>
+        `
+    })
+}
+
+//Funcion para traer de manera dinamica las categorias
+const getCategories = (data) => {
+    $("#select-category").innerHTML = `<option selected>Category</option>`
+    const categories = []
+    data.forEach(element => {
+        if(!categories.includes(element.category) && element.category !== ""){
+            categories.push(element.category);
+        }
+    })
+    return categories.map(category => {
+        $("#select-category").innerHTML += `
+        <option value="${category}">${category}</option>
+        `
+    })
+}
+
+//Funcion para traer de manera dinamica los seniorities
+const getSeniorities = (data) => {
+    $("#select-seniority").innerHTML = `<option selected>Seniority</option>`
+    const seniorities = []
+    data.forEach(element => {
+        if(!seniorities.includes(element.seniority) && element.seniority !== ""){
+            seniorities.push(element.seniority)
+        }
+    })
+    return seniorities.map(seniority => {
+        $("#select-seniority").innerHTML += `
+        <option value="${seniority}">${seniority}</option>
+        `
+    })
+}
+
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
