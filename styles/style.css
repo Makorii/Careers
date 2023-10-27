@@ -10,6 +10,7 @@
     --clr-edit: #D67D3E;
     --clr-edit-hover: #e58643;
     --clr-lenguages : #C65D7B;
+    --clr-add: #F68989;
 }
 
 body {
@@ -244,6 +245,10 @@ body {
 
 li {
     list-style: none;
+}
+
+.btn-add {
+    background-color: var(--clr-add);
 }
 
 .btn-close {
