@@ -333,7 +333,6 @@ const filterJobs = () => {
         filteredJobs = filteredJobs.filter((job) => job.seniority === selectedSeniority);
     }
     setTimeout(() => {
-        
         renderJobs(filteredJobs);
     }, 1000);
 }
@@ -384,7 +383,10 @@ $("#submit-new-job").addEventListener("click", () => {
 })
 
 const initializeViews = () => {
-    $("#new-job").onclick = () => showView("create-job");
+    $("#new-job").onclick = () => {
+        showView("create-job");
+        hideElements(["#search-bar"]);
+    }
     $("#home").onclick = () => {
         showView("spinner") 
         setTimeout(() => {
