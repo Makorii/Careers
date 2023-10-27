@@ -202,46 +202,47 @@ const showEditJob = (jobId) => {
                     </label>
                     <input class="form-check-input" role="switch" type="checkbox" value="${long_term}" id="long_term-edit-job" ${long_term ? 'checked' : ''}>
                 </div>
-                    <p>Conocimientos:</p>
-                    <div class="mb-3 gap-2">
-                        <input type="checkbox" class="btn-check edit-input" id="html5" autocomplete="off" value="html5" ${job.languages.includes("html5")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="html5">HTML5</label>
-                        <input type="checkbox" class="btn-check edit-input" id="css" autocomplete="off" value="css" ${job.languages.includes("css")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="css">CSS</label>
-                        <input type="checkbox" class="btn-check edit-input" id="javascript" autocomplete="off" value="javascript"${job.languages.includes("javascript")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="javascript">JavaScript</label>
-                        <input type="checkbox" class="btn-check edit-input" id="react" autocomplete="off" value="react" ${job.languages.includes("react")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="react">ReactJS</label>
-                        <input type="checkbox" class="btn-check edit-input" id="sass" autocomplete="off" value="sass" ${job.languages.includes("sass") ? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="sass">SASS</label>
-                        <input type="checkbox" class="btn-check edit-input" id="java" autocomplete="off" value="java" ${job.languages.includes("java")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="java">Java</label>
-                        <input type="checkbox" class="btn-check edit-input" id="python" autocomplete="off" value="python" ${job.languages.includes("python")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="python">Python</label>
-                        <input type="checkbox" class="btn-check edit-input" id="angular" autocomplete="off" value="angular" ${job.languages.includes("angular")? "checked" : ""}> 
-                        <label class="btn m-1 btn-edit" for="angular">Angular</label>
-                        <input type="checkbox" class="btn-check edit-input" id="c++" autocomplete="off" value="c++" ${job.languages.includes("c++")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="c++">C++</label>
-                        <input type="checkbox" class="btn-check edit-input" id="php" autocomplete="off" value="php" ${job.languages.includes("php")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="php">PHP</label>
-                        <input type="checkbox" class="btn-check edit-input" id="bootstrap" autocomplete="off" value="bootstrap" ${job.languages.includes("bootstrap")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="bootstrap">Bootstrap</label>
-                        <input type="checkbox" class="btn-check edit-input" id="nodejs" autocomplete="off" value="nodejs" ${job.languages.includes("nodejs")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="nodejs">Node.js</label>
-                        <input type="checkbox" class="btn-check edit-input" id="figma" autocomplete="off" value="figma" ${job.languages.includes("figma")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="figma">Figma</label>
-                        <input type="checkbox" class="btn-check edit-input" id="adobexd" autocomplete="off" value="adobexd" ${job.languages.includes("adobexd")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="adobexd">AdobeXD</label>
-                        <input type="checkbox" class="btn-check edit-input" id="illustrator" autocomplete="off" value="illustrator" ${job.languages.includes("illustrator")? "checked" : ""}>
-                        <label class="btn m-1 btn-edit" for="illustrator">Illustrator</label>
-                        <input type="checkbox" class="btn-check edit-input" id="photoshop" autocomplete="off" value="photoshop" onclick="agregarLenguaje(${this.id})">
-                        <label class="btn m-1 btn-edit" for="photoshop">Photoshop</label>
-                    </div>
+                <div class="mb-3">
+                <label for="lenguages" class="form-label">Conocimientos</label>
+                <div class="d-flex">
+                    <input type="text" class="form-control" id="lenguages-edit" placeholder="Conocimientos" style="width: 15rem;">
+                    <button type="button" class="btn" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
+                </div>
+                <ul class="list-group list-group-flush" id="ul">
+                ${createLanguageButtons(languages)}
+                </ul>
+            </div>
                     <a href="#" type="submit" class="btn btn-edit mb-3" onclick="editJob('${job.id}')" id="${job.id}">Edit</a>
                 </form>
             </section>
         `;
     }
+}
+
+let languages = []
+
+const createLanguageButtons = (languages) => {
+    let buttons = "";
+    for (let language of languages) {
+        languages.push(language);
+        buttons += `
+        <li>
+            <button type="button" class="btn btn-lenguages-edit my-1" value="${language}">
+                ${language}
+            </button>
+            <button type="button" class="btn-close" aria-label="Close" onclick="removeLenguage(this, '${language}')"></button>
+        </li>
+        `;
+    }
+    return buttons;
+}
+
+const removeLenguage = (button, language) => {
+    const index = languages.indexOf(language);
+    if (index !== -1) {
+        languages.splice(index, 1);
+    }
+    button.parentElement.remove();
 }
 
 //Funcion que muestra la card para eliminar un job
@@ -268,17 +269,6 @@ const updateSalaryValue = (value) => {
     $$(".salaryValue").forEach((valor) => valor.innerHTML = `$${value}`)
 }
 
-const getSelectedLanguages = () => {
-    const checkboxes = $$('.btn-check');
-    const selectedLanguages = [];
-
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            selectedLanguages.push(checkbox.id);
-        }
-    });
-    return selectedLanguages;
-}
 
 //funcion para filtrar por ubicacion, categoria o seniority
 const filterJobs = () => {
@@ -317,6 +307,7 @@ const clearFilters = () => {
     getJobs();
 }
 $("#clear-btn").addEventListener("click", clearFilters);
+
 
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");

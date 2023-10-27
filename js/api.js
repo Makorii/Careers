@@ -12,9 +12,7 @@ getJobs()
 // funcion que agrega un nuevo job
 const addNewJob = async () => {
     showView("spinner");
-    const selectedLanguages = getSelectedLanguages();
-    const newJob = createNewJob(selectedLanguages);
-
+    const newJob = createNewJob(lenguages)
     const response = await fetch("https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs", {
         method: "POST",
         body: JSON.stringify(newJob),
@@ -34,7 +32,7 @@ const addNewJob = async () => {
 
 $("#submit-new-job").addEventListener("click", () => addNewJob())
 
-const createNewJob = (selectedLanguages) => {
+const createNewJob = (languages) => {
     return {
         name: $("#title-new-job").value,
         description: $("#description-new-job").value,
@@ -49,7 +47,7 @@ const createNewJob = (selectedLanguages) => {
         },
         salary: $("#salary-new-job").value,
         long_term: $("#long_term-new-job").checked,
-        languages: selectedLanguages,
+        languages: languages,
     };
 }
 
