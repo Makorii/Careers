@@ -127,7 +127,6 @@ const showDetails = (jobId) => {
                 
             </div>
         `;
-        showView("details-job");
     }
 }
 
