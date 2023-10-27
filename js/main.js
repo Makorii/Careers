@@ -219,6 +219,24 @@ const showEditJob = (jobId) => {
     }
 }
 
+let languages = []
+
+const createLanguageButtons = (languages) => {
+    let buttons = "";
+    for (let language of languages) {
+        languages.push(language);
+        buttons += `
+        <li>
+            <button type="button" class="btn btn-lenguages-edit my-1" value="${language}">
+                ${language}
+            </button>
+            <button type="button" class="btn-close" aria-label="Close" onclick="removeLenguage(this, '${language}')"></button>
+        </li>
+        `;
+    }
+    return buttons;
+}
+
 //Funcion que muestra la card para eliminar un job
 const deleteView = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
