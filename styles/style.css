@@ -9,6 +9,7 @@
     --clr-delete-hover: #a00f25;
     --clr-edit: #D67D3E;
     --clr-edit-hover: #e58643;
+    --clr-lenguages : #C65D7B;
 }
 
 body {
@@ -36,6 +37,10 @@ body {
 .btn-tags:hover, .btn-search:hover, .btn-create:hover {
     background-color: var(--clr-btn-hover);
     color: var(--clr-white);
+}
+
+.form {
+    border: 1px dotted #BB8760 !important;
 }
 
 .btn-clear {
@@ -164,4 +169,69 @@ body {
         background-position: -36px -36px;
         background-size: 80px 80px;
     }
+}
+
+@media screen and (max-width: 1220px) {
+    .jobs-list {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .jobs-list {
+        width: 600px;
+    }
+
+    .form-create-job{
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .jobs-list {
+        width: 288px;
+    }
+
+    .container-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1;
+    }
+
+    .section-create-job{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .form-create-job{
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .container-form {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.search-select {
+    min-width: 10rem;
+}
+
+li {
+    list-style: none;
+}
+
+.btn-close {
+    width: .3em;
+    height: .3em;
+}
+
+.btn-lenguages, .btn-lenguages-edit {
+    background-color: var(--clr-lenguages);
+    color: var(--clr-white);
 }
