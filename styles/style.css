@@ -1,5 +1,5 @@
 :root {
-    --clr-nav: #4F0E0E;
+    --clr-nav: #6f1717;
     --clr-body: #FFDADA;
     --clr-white: #EEEEEE;
     --clr-btn: #BB8760;
@@ -10,6 +10,7 @@
     --clr-edit: #D67D3E;
     --clr-edit-hover: #e58643;
     --clr-lenguages : #C65D7B;
+    --clr-add: #F68989;
 }
 
 body {
@@ -186,6 +187,26 @@ body {
         margin: 0;
         max-width: 100%;
     }
+
+    .section-details {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .section-edit-job{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .card-details {
+        margin: 2rem;
+    }
+
+    .form-edit-job{
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -216,6 +237,14 @@ body {
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .section-details{
+        margin: 5px !important;
+    }
+
+    .card-details{
+        margin: auto;
+    }
 }
 
 .search-select {
@@ -224,6 +253,10 @@ body {
 
 li {
     list-style: none;
+}
+
+.btn-add {
+    background-color: var(--clr-add);
 }
 
 .btn-close {
@@ -235,3 +268,4 @@ li {
     background-color: var(--clr-lenguages);
     color: var(--clr-white);
 }
+

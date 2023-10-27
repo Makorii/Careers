@@ -45,32 +45,33 @@
     </section>
     <span id="spinner" class="loader view visually-hidden d-flex mx-auto"></span>
     <main>
-        <section id="jobs-list" class="view row mx-auto gap-3 jobs-list" style="width: 1200px"></section>
+        <section id="jobs-list" class="view row mx-auto gap-3 jobs-list" style="max-width: 1200px"></section>
     </main>
     <section id="create-job" class="view p-4 m-4 section-create-job">
         <form class="container border p-4 shadow form rounded form-create-job">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Job Title</label>
+                <label for="title-new-job" class="form-label">Job Title</label>
                 <input type="text" class="form-control" id="title-new-job" placeholder="Job Title">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <label for="description-new-job" class="form-label">Description</label>
                 <textarea class="form-control" id="description-new-job" rows="3"></textarea>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">URL image</label>
+                <label for="image-new-job" class="form-label">URL image</label>
                 <input type="url" name="" id="image-new-job">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Tags</label>
+                <p class="m-0">Tags</p>
+                <label for="location-new-job" class="form-label"></label>
                 <input type="text" class="form-control" id="location-new-job" placeholder="Location">
-                <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                <label for="seniority-new-job" class="form-label"></label>
                 <input type="text" class="form-control" id="seniority-new-job" placeholder="Seniority">
-                <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                <label for="category-new-job" class="form-label"></label>
                 <input type="text" class="form-control" id="category-new-job" placeholder="Category">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Benefits</label>
+                <p class="m-0">Benefits</p>
                 <div class="form-check form-switch">
                     <label class="form-check-label" for="vacation-new-job">
                         Vacation
@@ -90,7 +91,7 @@
                     <input class="form-check-input" role="switch" type="checkbox" value="internet_paid" id="internet_paid-new-job">
                 </div>
             </div>
-            <label for="customRange1" class="form-label">Salary</label>
+            <label for="salary-new-job" class="form-label">Salary</label>
             <p id="salaryValue" class="m-0 salaryValue">$0</p>
             <input type="range" class="form-range d-flex" style="max-width: 20rem;" id="salary-new-job" min="0" max="1000000" step="1000" value="0" oninput="updateSalaryValue(this.value)" style="width: 20rem;">
             <div class="form-check form-switch">
@@ -103,15 +104,16 @@
                 <label for="lenguages" class="form-label">Conocimientos</label>
                 <div class="d-flex">
                     <input type="text" class="form-control" id="lenguages" placeholder="Conocimientos" style="width: 15rem;">
-                    <button type="button" class="btn" id="add-lenguages">Add</button>
+                    <button type="button" class="btn btn-add ms-1" id="add-lenguages">Add</button>
                 </div>
                 <ul class="list-group list-group-flush" id="list-lenguages"></ul>
             </div>
             <button type="submit" class="btn btn-create mb-3" id="submit-new-job">Submit</button>
         </form>
     </section>
-    <section id="details-job" class="container view visually-hidden p-4 m-4"></section>
+    <section id="details-job" class="container view visually-hidden p-4 m-4 section-details"></section>
     <script src="./js/api.js"></script>
     <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

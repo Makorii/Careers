@@ -99,7 +99,7 @@ const showDetails = (jobId) => {
 
     if (job) {
         $("#details-job").innerHTML = `
-            <div class="card p-3 shadow" style="width: 20.5rem;" id="card-details">
+            <div class="card p-3 shadow card-details" style="max-width: 20.5rem;" id="card-details">
                 <div style="height: 127px;" style="width: 18rem;" class="d-flex align-items-center">
                     <img src="${job.image}" class="card-img-top" alt="image of job" style="height: 100%;">
                 </div>
@@ -147,14 +147,14 @@ const showEditJob = (jobId) => {
         const long_term = job.long_term || "";
 
         $("#details-job").innerHTML += `
-        <section class="container py-4 px-0">
-            <form class="container border p-4 shadow form rounded">
+        <section class="section py-4 px-0 section-edit-job">
+            <form class="container border p-4 shadow form rounded form-edit-job">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label"></label>
+                        <label for="title-edit-job" class="form-label">Job title</label>
                         <input type="text" class="form-control" id="title-edit-job" placeholder="Job Title" value="${name}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <label for="description-edit-job" class="form-label">Description</label>
                         <textarea class="form-control" id="description-edit-job" rows="10" cols="50">${description}</textarea>
                     </div>
                     <div class="mb-3">
@@ -162,20 +162,19 @@ const showEditJob = (jobId) => {
                         <input type="url" name="" id="image-edit-job" value="${image}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Tags</label>
+                        <p class="m-0">Tags</p>
+                        <label for="location-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="location-edit-job" placeholder="Location" value="${location}">
-                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <label for="seniority-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="seniority-edit-job" placeholder="Seniority" value="${seniority}">
-                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <label for="category-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="category-edit-job" placeholder="Category" value="${category}">
-                        <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Benefits</label>
-                    <div class="form-check form-switch">
-                    <label class="form-check-label" for="vacation-edit-job">
-                        Vacation
-                    </label>
-                    <input class="form-check-input" role="switch" type="checkbox" value="${vacation}" id="vacation-edit-job" ${vacation ? 'checked' : ''}>
-                </div>
+                    <div class="mb-3">
+                        <p class="m-0">Benefits</p>
+                        <div class="form-check form-switch">
+                        <label class="form-check-label" for="vacation-edit-job"> Vacation</label>
+                        <input class="form-check-input" role="switch" type="checkbox" value="${vacation}" id="vacation-edit-job" ${vacation ? 'checked' : ''}>
+                    </div>
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="health_ensurance-edit-job">
                             Health ensurance
@@ -199,10 +198,10 @@ const showEditJob = (jobId) => {
                     <input class="form-check-input" role="switch" type="checkbox" value="${long_term}" id="long_term-edit-job" ${long_term ? 'checked' : ''}>
                 </div>
                 <div class="mb-3">
-                <label for="lenguages" class="form-label">Conocimientos</label>
+                <label for="lenguages-edit" class="form-label">Conocimientos</label>
                 <div class="d-flex">
                     <input type="text" class="form-control" id="lenguages-edit" placeholder="Conocimientos" style="width: 15rem;">
-                    <button type="button" class="btn" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
+                    <button type="button" class="btn btn-add ms-1" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
                 </div>
                 <ul class="list-group list-group-flush" id="ul">
                 ${createLanguageButtons(languages)}
@@ -248,6 +247,7 @@ const renderLenguages = () => {
     <button type="button" class="btn btn-lenguages my-1" value="${language}">${language}<button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.remove()"></button></button>
     </li>
     `
+    $("#lenguages").value = '';
     languages.push(language)
 }
 
