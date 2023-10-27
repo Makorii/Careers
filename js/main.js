@@ -201,7 +201,7 @@ const showEditJob = (jobId) => {
                 <label for="lenguages-edit" class="form-label">Conocimientos</label>
                 <div class="d-flex">
                     <input type="text" class="form-control" id="lenguages-edit" placeholder="Conocimientos" style="width: 15rem;">
-                    <button type="button" class="btn" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
+                    <button type="button" class="btn btn-add ms-1" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
                 </div>
                 <ul class="list-group list-group-flush" id="ul">
                 ${createLanguageButtons(languages)}
