@@ -245,6 +245,51 @@ const removeLenguage = (button, language) => {
     button.parentElement.remove();
 }
 
+const renderLenguages = () => {
+    let language = $("#lenguages").value
+    $("#list-lenguages").innerHTML += `
+    <li class="">
+    <button type="button" class="btn btn-lenguages my-1" value="${language}">${language}<button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.remove()"></button></button>
+    </li>
+    `
+    languages.push(language)
+}
+
+$("#add-lenguages").addEventListener("click", renderLenguages)
+
+const updateButtons = () => {
+    const languageInput = document.getElementById("lenguages-edit").value;
+
+    if (languageInput !== "") {
+        if (!languages.includes(languageInput)) {
+            languages.push(languageInput);
+
+            const ul = document.getElementById("ul");
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+            <button type="button" class="btn btn-lenguages-edit my-1" id="${languageInput}">
+                ${languageInput}
+            </button>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            `;
+
+            const closeButton = li.querySelector(".btn-close");
+
+            closeButton.addEventListener("click", () => {
+                const index = languages.indexOf(languageInput);
+                if (index !== -1) {
+                    languages.splice(index, 1);
+                }
+                ul.removeChild(li);
+            });
+
+            document.getElementById("lenguages-edit").value = "";
+            ul.appendChild(li);
+        }
+    }
+}
+
 //Funcion que muestra la card para eliminar un job
 const deleteView = (jobId) => {
     const job = jobs.find(job => job.id === jobId);

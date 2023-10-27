@@ -52,11 +52,12 @@ const createNewJob = (languages) => {
 }
 
 const editJob = async (id) => {
-    showView("spinner")
+    showView("spinner");
     let response = await fetch(`https://65214fb8a4199548356d0a7d.mockapi.io/api/jobs/${id}`, {
         method: "PUT",
         body: JSON.stringify({
             name: $("#title-edit-job").value,
+            image: $("#image-edit-job").value,
             description: $("#description-edit-job").value,
             location: $("#location-edit-job").value,
             seniority: $("#seniority-edit-job").value,
@@ -68,17 +69,19 @@ const editJob = async (id) => {
             },
             salary: $("#salary-edit-job").value,
             long_term: $("#long_term-edit-job").checked,
+            languages: languages
         }),
-        headers:{
-            'Content-type':'application/json',
-        } 
-    })
-    let data = await response.json()
-    if(data){
+        headers: {
+            'Content-type': 'application/json',
+        }
+    });
+
+    let data = await response.json();
+    if (data) {
         setTimeout(() => {
-        getJobs()
-        showElements(["#search-bar"]);
-    }, 2000);
+            getJobs();
+            showElements(["#search-bar"]);
+        }, 2000);
     }
 }
 
