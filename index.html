@@ -10,8 +10,8 @@
 </head>
 <body>
     <nav id="navbar" class="navbar navbar-expand-lg text-light ps-4">
-        <i class="fa-solid fa-mug-saucer fs-3"></i>
         <div class="container-fluid">
+            <i class="fa-solid fa-mug-saucer fs-3 pe-4"></i>
             <a class="navbar-brand text-light" href="#">Careers</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,21 +29,23 @@
             </div>
         </div>
     </nav>
-    <section id="search-bar">
-        <form id="form" class="d-flex justify-content-center mb-5 mt-3 pb-5 gap-3">
-            <select class="form-select" style="width: 20rem;" aria-label="Default select example" id="select-location" form="form">
+    <section id="search-bar" class="mx-auto search-container" style="max-width: 1200px">
+        <form id="form" class="row mx-2 mb-5 mt-3 pb-5 gap-3 container-form">
+            <select class="form-select col search-select" aria-label="Default select example" id="select-location" form="form">
             </select>
-            <select class="form-select" style="width: 20rem;" aria-label="Default select example" id="select-category" form="form">
+            <select class="form-select col search-select" aria-label="Default select example" id="select-category" form="form">
             </select>
-            <select class="form-select" style="width: 20rem;" aria-label="Default select example" id="select-seniority" form="form">
+            <select class="form-select col search-select" aria-label="Default select example" id="select-seniority" form="form">
             </select>
-            <button type="submit" class="btn btn-search" id="select-btn">Submit</button>
-            <button type="reset" class="btn btn-clear" id="clear-btn">Clear</button>
+            <div class="col d-flex flex-nowrap">
+                <button type="submit" class="btn btn-search me-2" id="select-btn">Submit</button>
+                <button type="reset" class="btn btn-clear" id="clear-btn">Clear</button>
+            </div>
         </form>
     </section>
     <span id="spinner" class="loader view visually-hidden d-flex mx-auto"></span>
     <main>
-        <section id="jobs-list" class="view row mx-auto gap-3" style="width: 1200px"></section>
+        <section id="jobs-list" class="view row mx-auto gap-3 jobs-list" style="width: 1200px"></section>
     </main>
     <section id="create-job" class="view">
         <form class="container border p-4 shadow form rounded">
