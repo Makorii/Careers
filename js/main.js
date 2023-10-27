@@ -1,6 +1,3 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
-
 const hideElements = (selectors) => {
     for (const eachSelector of selectors) {
         $(eachSelector).classList.add('visually-hidden')
@@ -12,11 +9,6 @@ const showElements = (selectors) => {
         $(eachSelector).classList.remove('visually-hidden')
     }
 }
-
-const showView = (view) => {  
-    $$(".view").forEach((view) => view.classList.add("visually-hidden"));  
-    $(`#${view}`).classList.remove("visually-hidden");
-};
 
 let jobs = []; 
 
@@ -353,6 +345,38 @@ const clearFilters = () => {
 }
 $("#clear-btn").addEventListener("click", clearFilters);
 
+const clearForm = () => {
+    // Restablecer los valores de los campos del formulario a sus valores iniciales
+    document.getElementById('title-new-job').value = '';
+    document.getElementById('description-new-job').value = '';
+    document.getElementById('image-new-job').value = '';
+    document.getElementById('location-new-job').value = '';
+    document.getElementById('seniority-new-job').value = '';
+    document.getElementById('category-new-job').value = '';
+    
+    // Desmarcar las casillas de verificación
+    document.getElementById('vacation-new-job').checked = false;
+    document.getElementById('health_ensurance-new-job').checked = false;
+    document.getElementById('internet_paid-new-job').checked = false;
+    document.getElementById('long_term-new-job').checked = false;
+    
+    // Limpiar la lista de lenguajes
+    document.getElementById('list-lenguages').innerHTML = '';
+    
+    // Restablecer el rango de salario
+    document.getElementById('salary-new-job').value = 0;
+    updateSalaryValue(0);
+    
+    // Limpiar el array de lenguajes
+    lenguages = [];
+    
+    // Limpia el input de languages
+    $("#lenguages").value = "";
+}
+
+$("#submit-new-job").addEventListener("click", () => {
+    addNewJob(), clearForm()
+})
 
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
