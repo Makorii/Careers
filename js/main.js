@@ -245,6 +245,18 @@ const removeLenguage = (button, language) => {
     button.parentElement.remove();
 }
 
+const renderLenguages = () => {
+    let language = $("#lenguages").value
+    $("#list-lenguages").innerHTML += `
+    <li class="">
+    <button type="button" class="btn btn-lenguages my-1" value="${language}">${language}<button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.remove()"></button></button>
+    </li>
+    `
+    languages.push(language)
+}
+
+$("#add-lenguages").addEventListener("click", renderLenguages)
+
 const updateButtons = () => {
     const languageInput = document.getElementById("lenguages-edit").value;
 
