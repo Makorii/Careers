@@ -1,3 +1,11 @@
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
+
+const showView = (view) => {  
+    $$(".view").forEach((view) => view.classList.add("visually-hidden"));  
+    $(`#${view}`).classList.remove("visually-hidden");
+};
+
 // funcion que trae los datos
 const getJobs = async() => {
     showView("spinner")
@@ -29,8 +37,6 @@ const addNewJob = async () => {
         }, 2000);
     }
 }
-
-$("#submit-new-job").addEventListener("click", () => addNewJob())
 
 const createNewJob = (languages) => {
     return {
