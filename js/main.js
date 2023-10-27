@@ -248,6 +248,7 @@ const renderLenguages = () => {
     <button type="button" class="btn btn-lenguages my-1" value="${language}">${language}<button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.remove()"></button></button>
     </li>
     `
+    $("#lenguages").value = '';
     languages.push(language)
 }
 
