@@ -237,6 +237,14 @@ const createLanguageButtons = (languages) => {
     return buttons;
 }
 
+const removeLenguage = (button, language) => {
+    const index = languages.indexOf(language);
+    if (index !== -1) {
+        languages.splice(index, 1);
+    }
+    button.parentElement.remove();
+}
+
 //Funcion que muestra la card para eliminar un job
 const deleteView = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
