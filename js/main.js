@@ -150,11 +150,11 @@ const showEditJob = (jobId) => {
         <section class="container py-4 px-0">
             <form class="container border p-4 shadow form rounded">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label"></label>
+                        <label for="title-edit-job" class="form-label">Job title</label>
                         <input type="text" class="form-control" id="title-edit-job" placeholder="Job Title" value="${name}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <label for="description-edit-job" class="form-label">Description</label>
                         <textarea class="form-control" id="description-edit-job" rows="10" cols="50">${description}</textarea>
                     </div>
                     <div class="mb-3">
@@ -162,20 +162,19 @@ const showEditJob = (jobId) => {
                         <input type="url" name="" id="image-edit-job" value="${image}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Tags</label>
+                        <p class="m-0">Tags</p>
+                        <label for="location-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="location-edit-job" placeholder="Location" value="${location}">
-                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <label for="seniority-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="seniority-edit-job" placeholder="Seniority" value="${seniority}">
-                        <!-- <label for="exampleFormControlInput1" class="form-label"></label> -->
+                        <label for="category-edit-job" class="form-label"></label>
                         <input type="text" class="form-control" id="category-edit-job" placeholder="Category" value="${category}">
-                        <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Benefits</label>
-                    <div class="form-check form-switch">
-                    <label class="form-check-label" for="vacation-edit-job">
-                        Vacation
-                    </label>
-                    <input class="form-check-input" role="switch" type="checkbox" value="${vacation}" id="vacation-edit-job" ${vacation ? 'checked' : ''}>
-                </div>
+                    <div class="mb-3">
+                        <p class="m-0">Benefits</p>
+                        <div class="form-check form-switch">
+                        <label class="form-check-label" for="vacation-edit-job"> Vacation</label>
+                        <input class="form-check-input" role="switch" type="checkbox" value="${vacation}" id="vacation-edit-job" ${vacation ? 'checked' : ''}>
+                    </div>
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="health_ensurance-edit-job">
                             Health ensurance
