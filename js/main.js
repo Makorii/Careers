@@ -198,7 +198,7 @@ const showEditJob = (jobId) => {
                     <input class="form-check-input" role="switch" type="checkbox" value="${long_term}" id="long_term-edit-job" ${long_term ? 'checked' : ''}>
                 </div>
                 <div class="mb-3">
-                <label for="lenguages" class="form-label">Conocimientos</label>
+                <label for="lenguages-edit" class="form-label">Conocimientos</label>
                 <div class="d-flex">
                     <input type="text" class="form-control" id="lenguages-edit" placeholder="Conocimientos" style="width: 15rem;">
                     <button type="button" class="btn" id="add-lenguages-edit" onclick="updateButtons()">Add</button>
