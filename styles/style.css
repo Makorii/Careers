@@ -1,5 +1,5 @@
 :root {
-    --clr-nav: #4F0E0E;
+    --clr-nav: #6f1717;
     --clr-body: #FFDADA;
     --clr-white: #EEEEEE;
     --clr-btn: #BB8760;
@@ -268,3 +268,4 @@ li {
     background-color: var(--clr-lenguages);
     color: var(--clr-white);
 }
+
