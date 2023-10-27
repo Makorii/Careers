@@ -245,6 +245,39 @@ const removeLenguage = (button, language) => {
     button.parentElement.remove();
 }
 
+const updateButtons = () => {
+    const languageInput = document.getElementById("lenguages-edit").value;
+
+    if (languageInput !== "") {
+        if (!languages.includes(languageInput)) {
+            languages.push(languageInput);
+
+            const ul = document.getElementById("ul");
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+            <button type="button" class="btn btn-lenguages-edit my-1" id="${languageInput}">
+                ${languageInput}
+            </button>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            `;
+
+            const closeButton = li.querySelector(".btn-close");
+
+            closeButton.addEventListener("click", () => {
+                const index = languages.indexOf(languageInput);
+                if (index !== -1) {
+                    languages.splice(index, 1);
+                }
+                ul.removeChild(li);
+            });
+
+            document.getElementById("lenguages-edit").value = "";
+            ul.appendChild(li);
+        }
+    }
+}
+
 //Funcion que muestra la card para eliminar un job
 const deleteView = (jobId) => {
     const job = jobs.find(job => job.id === jobId);
