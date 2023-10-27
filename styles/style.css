@@ -237,6 +237,14 @@ body {
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .section-details{
+        margin: 5px !important;
+    }
+
+    .card-details{
+        margin: auto;
+    }
 }
 
 .search-select {
