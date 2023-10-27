@@ -50,15 +50,15 @@
     <section id="create-job" class="view p-4 m-4 section-create-job">
         <form class="container border p-4 shadow form rounded form-create-job">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Job Title</label>
+                <label for="title-new-job" class="form-label">Job Title</label>
                 <input type="text" class="form-control" id="title-new-job" placeholder="Job Title">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <label for="description-new-job" class="form-label">Description</label>
                 <textarea class="form-control" id="description-new-job" rows="3"></textarea>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">URL image</label>
+                <label for="image-new-job" class="form-label">URL image</label>
                 <input type="url" name="" id="image-new-job">
             </div>
             <div class="mb-3">
@@ -90,7 +90,7 @@
                     <input class="form-check-input" role="switch" type="checkbox" value="internet_paid" id="internet_paid-new-job">
                 </div>
             </div>
-            <label for="customRange1" class="form-label">Salary</label>
+            <label for="salary-new-job" class="form-label">Salary</label>
             <p id="salaryValue" class="m-0 salaryValue">$0</p>
             <input type="range" class="form-range d-flex" style="max-width: 20rem;" id="salary-new-job" min="0" max="1000000" step="1000" value="0" oninput="updateSalaryValue(this.value)" style="width: 20rem;">
             <div class="form-check form-switch">
