@@ -269,6 +269,46 @@ const updateSalaryValue = (value) => {
     $$(".salaryValue").forEach((valor) => valor.innerHTML = `$${value}`)
 }
 
+
+//funcion para filtrar por ubicacion, categoria o seniority
+const filterJobs = () => {
+    showView("spinner");
+    const selectedLocation = $("#select-location").value;
+    const selectedCategory = $("#select-category").value;
+    const selectedSeniority = $("#select-seniority").value;
+
+    let filteredJobs = jobs;
+
+    if (selectedLocation !== "Location") {
+        filteredJobs = filteredJobs.filter((job) => job.location === selectedLocation);
+    }
+
+    if (selectedCategory !== "Category") {
+        filteredJobs = filteredJobs.filter((job) => job.category === selectedCategory);
+    }
+
+    if (selectedSeniority !== "Seniority") {
+        filteredJobs = filteredJobs.filter((job) => job.seniority === selectedSeniority);
+    }
+    setTimeout(() => {
+        
+        renderJobs(filteredJobs);
+    }, 1000);
+}
+
+$("#select-btn").addEventListener("click", filterJobs);
+
+//funcion para limpiar los filtros
+const clearFilters = () => {
+    $("#select-location").value = "Location";
+    $("#select-category").value = "Category";
+    $("#select-seniority").value = "Seniority";
+
+    getJobs();
+}
+$("#clear-btn").addEventListener("click", clearFilters);
+
+
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
     $("#home").onclick = () => {
