@@ -39,6 +39,10 @@ body {
     color: var(--clr-white);
 }
 
+.form {
+    border: 1px dotted #BB8760 !important;
+}
+
 .btn-clear {
     background-color: #DEA057;
     color: var(--clr-white);
