@@ -269,18 +269,6 @@ const updateSalaryValue = (value) => {
     $$(".salaryValue").forEach((valor) => valor.innerHTML = `$${value}`)
 }
 
-const getSelectedLanguages = () => {
-    const checkboxes = $$('.btn-check');
-    const selectedLanguages = [];
-
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            selectedLanguages.push(checkbox.id);
-        }
-    });
-    return selectedLanguages;
-}
-
 const initializeViews = () => {
     $("#new-job").onclick = () => showView("create-job");
     $("#home").onclick = () => {
