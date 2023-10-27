@@ -99,7 +99,7 @@ const showDetails = (jobId) => {
 
     if (job) {
         $("#details-job").innerHTML = `
-            <div class="card p-3 shadow" style="width: 20.5rem;" id="card-details">
+            <div class="card p-3 shadow card-details" style="width: 20.5rem;" id="card-details">
                 <div style="height: 127px;" style="width: 18rem;" class="d-flex align-items-center">
                     <img src="${job.image}" class="card-img-top" alt="image of job" style="height: 100%;">
                 </div>
@@ -147,8 +147,8 @@ const showEditJob = (jobId) => {
         const long_term = job.long_term || "";
 
         $("#details-job").innerHTML += `
-        <section class="container py-4 px-0">
-            <form class="container border p-4 shadow form rounded">
+        <section class="section py-4 px-0 section-edit-job">
+            <form class="container border p-4 shadow form rounded form-edit-job">
                     <div class="mb-3">
                         <label for="title-edit-job" class="form-label">Job title</label>
                         <input type="text" class="form-control" id="title-edit-job" placeholder="Job Title" value="${name}">
