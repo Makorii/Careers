@@ -388,10 +388,8 @@ const initializeViews = () => {
         hideElements(["#search-bar"]);
     }
     $("#home").onclick = () => {
-        showView("spinner") 
-        setTimeout(() => {
-            showView("jobs-list");
-        }, 1500)
+        showElements(["#search-bar"]);
+        showView("jobs-list");
     }; 
 }
 
