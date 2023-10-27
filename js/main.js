@@ -26,7 +26,7 @@ const renderJobs = (jobsData) => {
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text description">${description.replace(/\n/g, '<br>')}</p>
             </div>
-            <ul class="d-flex gap-3 p-0">
+            <ul class="d-flex gap-2 p-0">
             ${location ? `<li class="list-group-item tag px-1 rounded">${location}</li>` : ''}
             ${category ? `<li class="list-group-item tag px-1 rounded">${category}</li>` : ''}
             ${seniority ? `<li class="list-group-item tag px-1 rounded">${seniority}</li>` : ''}
