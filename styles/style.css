@@ -186,6 +186,26 @@ body {
         margin: 0;
         max-width: 100%;
     }
+
+    .section-details {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .section-edit-job{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .card-details {
+        margin: 2rem;
+    }
+
+    .form-edit-job{
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
