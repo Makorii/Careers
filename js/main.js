@@ -90,6 +90,11 @@ const getSeniorities = (data) => {
 
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
+    showView("spinner");
+    hideElements(["#search-bar"]);
+    setTimeout(() => {
+        showView("details-job");
+    }, 2000)
     const job = jobs.find(job => job.id === jobId);
 
     if (job) {
