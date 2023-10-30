@@ -101,7 +101,7 @@ const deleteJob = async (id) => {
     let data = await response.json()
     setTimeout(() => {
         getJobs(data)
-        
+        showElements(["#search-bar"])
     }, 2000);
 }
 
