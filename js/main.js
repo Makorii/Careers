@@ -88,6 +88,8 @@ const getSeniorities = (data) => {
     })
 }
 
+let languages = []
+
 //Funcion para que se vea el detalle de cada job
 const showDetails = (jobId) => {
     showView("spinner");
@@ -132,6 +134,7 @@ const showDetails = (jobId) => {
 
 //Funcion que muestra el form para editar el job seleccionado
 const showEditJob = (jobId) => {
+    languages = []
     const job = jobs.find(job => job.id === jobId);
     if (job) {
         const name = job.name || "";
@@ -145,6 +148,7 @@ const showEditJob = (jobId) => {
         const internet_paid = job.benefits.internet_paid || "";
         const salary = job.salary || "";
         const long_term = job.long_term || "";
+        const languages = job.languages || "";
 
         $("#details-job").innerHTML += `
         <section class="section py-4 px-0 section-edit-job">
@@ -214,18 +218,18 @@ const showEditJob = (jobId) => {
     }
 }
 
-let languages = []
 
-const createLanguageButtons = (languages) => {
+
+const createLanguageButtons = (lang) => {
     let buttons = "";
-    for (let language of languages) {
+    for (let language of lang) {
         languages.push(language);
         buttons += `
         <li>
-            <button type="button" class="btn btn-lenguages-edit my-1" value="${language}">
-                ${language}
-            </button>
-            <button type="button" class="btn-close" aria-label="Close" onclick="removeLenguage(this, '${language}')"></button>
+        <button type="button" class="btn btn-lenguages-edit my-1" value="${language}">
+        ${language}
+        </button>
+        <button type="button" class="btn-close" aria-label="Close" onclick="removeLenguage(this, '${language}')"></button>
         </li>
         `;
     }
@@ -285,6 +289,7 @@ const updateButtons = () => {
         }
     }
 }
+
 
 //Funcion que muestra la card para eliminar un job
 const deleteView = (jobId) => {
@@ -371,7 +376,7 @@ const clearForm = () => {
     updateSalaryValue(0);
     
     // Limpiar el array de lenguajes
-    lenguages = [];
+    languages = [];
     
     // Limpia el input de languages
     $("#lenguages").value = "";
