@@ -318,6 +318,7 @@ const updateSalaryValue = (value) => {
 
 //funcion para filtrar por ubicacion, categoria o seniority
 const filterJobs = () => {
+    event.preventDefault();
     showView("spinner");
     const selectedLocation = $("#select-location").value;
     const selectedCategory = $("#select-category").value;
